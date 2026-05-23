@@ -19,9 +19,15 @@ relogin_hitted_timeout = 60
 
 def relogin_thread():
     global relogin_timeout, relogin_hitted_timeout
+    global client
 
     hit_happened = False
     while True:
+        try:
+            client.logout()
+        except Exception:
+            print("Can't logout for some reason.")
+
         try:
             client.login(email=environ["BOT_MAIL"], password=environ["BOT_PSWD"])
             print("Relogined!")
