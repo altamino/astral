@@ -1,0 +1,11 @@
+services:
+    astral:
+        restart: always
+        build: .
+        environment:
+            - BOT_MAIL=
+            - BOT_PSWD=
+            - LOCAL_DB=
+            - I18N_PATH=files/i18n.yaml
+        volumes:
+            - ./files:/app/files

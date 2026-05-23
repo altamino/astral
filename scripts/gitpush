@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+	echo -e '\e[1;31mAn error occured!\e[0m\n'
+    echo "No commit message."
+    echo "Example: ./gitpush 'My first commit!'"
+    exit 1
+fi
+
+echo -e '\e[1;34mFormatting...\e[0m\n'
+
+uv run ruff format .
+
+echo -e '\n\e[1;34mCommiting everything...\e[0m\n'
+
+git add --all
+git commit -a -m "$1"
+
+echo -e '\n\e[1;34mPushing to origin...\e[0m\n'
+
+git push
+
+echo -e '\n\e[1;32mDone!\e[0m'

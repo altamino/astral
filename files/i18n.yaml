@@ -1,0 +1,111 @@
+en:
+    start: |
+        👋 Hi, I'm Astral, and I'm here to help you manage your community.
+
+        🤨 How does it work?
+        1. Invite me in your community using /invite (ex.: /invite http://altamino.top/c/members).
+        2. Start chat with me in your community.
+        3. Type /start if not autojoined and answered you.
+
+        👾 View possible commands at /help.
+    invite: |
+        ✅ Joined to provided community!        
+    sub: |
+        ✅ Now I'm following you!
+    botlang: |
+        ✅ Changed localization to  🇬🇧 English!
+    help: |
+        [B]My settings:
+        /start – start chat if not started yet
+        /botlang [en|ru] - change localization
+
+        [B]Community settings:
+        /setname [...] – change community name
+        /setslogan [...] – change community slogan (tagline)
+        /setdesc [... | reply message] – change escription in community (you can use reply message instead)
+        /setrules [... | reply message] – change rules in community (you can use reply message instead)
+        /seticon [reply message with image] – change community icon
+        /setcover [reply message with image] – change community cover
+        /setbackground [reply message with image] – change community background
+        /settitlebar [reply message with image] – change titlebar
+        /setlogo [reply message with image] – change community branding (logo)
+        /setleftpanel [reply message with image] – change left panel background
+
+        [B]Admin management:
+        [WIP] /promote [link | reply message] [leader/curator]
+        [WIP] /demote [link | reply message]
+        [WIP] /transfer-agent [link | reply message]
+
+        /help - you are here!
+    set:
+        name: ✅ Community name edited.
+        aminoId: ✅ AltAmino ID edited.
+        description: ✅ Community description edited.
+        tagline: ✅ Community slogan edited.
+        guidelines: ✅ Community rules edited.
+        theme: ✅ Community theme edited.
+    info:
+        use-reply-msg: 👀 You can use text from replied message. It can be more convenient.
+    errors:
+        no-i18n: 😢 There is no translation for "{key}" key.
+        no-args: 😐 Not enough arguments. Please double-check what are you doing.
+        no-such-ndc: 😐 No such community . Please double-check what you gave to me.
+        default: 😢 Something went wrong. Please try again later.
+        no-image-args: 😐 No image provided that I can use. Please reply on sent image in chat and invoke command again.
+        not-enough-rights: 😐 No rights to do that.
+
+ru:
+    start: |
+        👋 Привет, я Астрал, и я здесь, чтобы помочь тебе управлять сообществом.
+
+        🤨 Как это работает?
+        1. Пригласи меня в своё сообщество с помощью команды /invite (например: /invite http://altamino.top/c/members).
+        2. Начни со мною чат (личные сообщения).
+        3. Напиши /start, если я не вошёл в чат автоматически.        
+
+        👾 Посмотри доступные команды, вызвав  /help.
+    invite: |
+        ✅ Вступил в указанное сообщество!
+    sub:
+        ✅ Теперь я на тебя подписан!
+    botlang: |
+        ✅ Сменил локализацию на  🇷🇺 Русский!
+    help: |
+        no-such-ndc: 😐 Нет такого сообщества. Посмотри, пожалуйста, правильно ли ты всё ввёл.
+        [B]Мои настройки:
+        /start - начать чат, если автоматически не вышло
+        /botlang [en|ru] - сменить локализацию
+
+        [B]Настройки сообщества:
+        /setname [имя сообщества] – поменять имя сообщества
+        /setslogan [слоган] – поменять слоган сообщества
+        /setdesc [описание сообщества] – поменять описание сообщества (можно ответить на сообщение, чтобы использовать его в качестве описания)
+        /setrules [правила сообщества] – поменять правила сообщества (можно ответить на сообщение, чтобы использовать его в качестве правил)
+        /seticon [сообщение с картинкой в ответе] – поменять иконку сообщества
+        /setcover [сообщение с картинкой в ответе] – поменять обложку сообщества
+        /setbackground [сообщение с картинкой в ответе] – поменять фон сообщества
+        /settitlebar [сообщение с картинкой в ответе] – поменять именную табличку сообщества
+        /setleftpanel [сообщение с картинкой в ответе] – поменять фон левого меню
+
+        [B]Управление администрацией:
+        [WIP] /promote [ссылка] [leader/curator] - назначение на лидера/куратора (вместо ссылки может быть ответ на сообщение пользователя)
+        [WIP] /demote [ссылка] - снятие с должности (вместо ссылки может быть ответ на сообщение пользователя)
+        [WIP] /transfer-agent [ссылка] - передача агента другому (вместо ссылки может быть ответ на сообщение пользователя; требуется подтверждение почты)
+
+        /help - ты тут!
+    set:
+        name: ✅ Имя сообщества изменено.
+        aminoId: ✅ AltAmino ID сообщества изменён.
+        description: ✅ Описание сообщества изменено.
+        tagline: ✅ Слоган сообщества изменён.
+        guidelines: ✅ Правила сообщества изменены.
+        theme: ✅ Тема сообщества отредактирована.
+    info:
+        use-reply-msg: 👀 Не забывай, что ты можешь ответить на сообщение, чтобы поменять этот параметр. Так бывает удобнее.
+    errors:
+        no-i18n: 😢 У этого языка нет перевода для ключа "{key}".
+        no-args: 😐 Не хватает аргументов. Посмотри, пожалуйста, как используется команда.
+        no-image-args: 😐 Нет картинки, которую я бы мог использовать. Попробуй ответить на сообщение с твоей картинкой, напиши эту команду и отправь сообщение.
+        no-such-ndc: 😐 Нет такого сообщества. Посмотри, пожалуйста, правильно ли ты всё ввёл.
+        not-enough-rights: 😐 Нет прав.
+        default: 😢 Что-то пошло не так. Пожалуйста, попробуйте позже.

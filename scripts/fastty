@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo -e '\e[1;34mChecking code...\e[0m\n'
+
+uv run ty check .
+
+echo -e '\n\e[1;32mDone!\e[0m'
