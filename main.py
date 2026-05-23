@@ -61,6 +61,9 @@ def on_text_message(data: Event):
         return
 
     command, _, args = content.partition(" ")
+    if not command.startswith("/"):
+        return
+    
     users = UserManager()
     authorData = users.get(authorId)
     lang = authorData.lang
