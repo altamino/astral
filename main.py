@@ -1,15 +1,26 @@
-from aminofixfix import Client, SubClient
-from aminofixfix.lib.objects import Event, Message
-from lib.i18n import i18n
 from os import environ
-from lib.database import UserManager
-from lib.functions import edit_community, is_admin, exception_handler, valid_color
-from lib.theme_editor import ThemeEditor
 from threading import Thread
 from time import sleep
 
+from aminofixfix import Client, SubClient
+from aminofixfix.lib.objects import Event, Message
+
+from lib.database import UserManager
+from lib.functions import (
+    demotion,
+    edit_community,
+    exception_handler,
+    is_admin,
+    link_resolution,
+    promotion,
+    valid_color,
+)
+from lib.i18n import i18n
+from lib.theme_editor import ThemeEditor
+
 client = Client(
-    socket_url="wss://ws1.altamino.top", api_url="https://service.altamino.top/api/v1"
+    socket_url="wss://ws1.altamino.top",
+    api_url="https://dev-service.altamino.top/api/v1",
 )
 
 # since sessions are not so stable!
@@ -63,7 +74,7 @@ def on_text_message(data: Event):
     command, _, args = content.partition(" ")
     if not command.startswith("/"):
         return
-    
+
     users = UserManager()
     authorData = users.get(authorId)
     lang = authorData.lang
@@ -73,6 +84,22 @@ def on_text_message(data: Event):
         app.send_message(threadId, i18n.get("start", lang), replyTo=messageId)
     elif command == "/help":
         app.send_message(threadId, i18n.get("help", lang), replyTo=messageId)
+    elif command == "/promotion":
+        link, _, role = args.partition(" ")
+        resolved = link_resolution(app, ndcId, link.strip())
+        if resolved.objectId == authorId:
+            return
+
+        # process a role
+
+        promotion(app, ndcId, resolved.objectId, role)
+        app.send_message(threadId, i18n.get("promotion", lang), replyTo=messageId)
+    elif command == "/demotion":
+        resolved = link_resolution(app, ndcId, args.strip())
+        if resolved.objectId == authorId:
+            return
+        demotion(app, ndcId, resolved.objectId, role)
+        app.send_message(threadId, i18n.get("demotion", lang), replyTo=messageId)
     elif command[:4] == "/set":
         mapper = {
             "name": "name",
