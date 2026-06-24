@@ -84,22 +84,51 @@ def on_text_message(data: Event):
         app.send_message(threadId, i18n.get("start", lang), replyTo=messageId)
     elif command == "/help":
         app.send_message(threadId, i18n.get("help", lang), replyTo=messageId)
-    elif command == "/promotion":
+    elif command == "/promote":
+        if not args:
+            app.send_message(
+                threadId, i18n.get("errors.no-args", lang), replyTo=messageId
+            )
+            return
+
         link, _, role = args.partition(" ")
         resolved = link_resolution(app, ndcId, link.strip())
         if resolved.objectId == authorId:
             return
 
-        # process a role
+        leader_aliases, curator_aliases = (
+            i18n.get("roles.leader", lang),
+            i18n.get("roles.curator", lang),
+        )
+        role = role.lower()
+        if role in leader_aliases:
+            promotion(app, ndcId, resolved.objectId, 100)
+            app.send_message(
+                threadId, i18n.get("promote.leader", lang), replyTo=messageId
+            )
+        elif role in curator_aliases:
+            promotion(app, ndcId, resolved.objectId, 101)
+            app.send_message(
+                threadId, i18n.get("promote.curator", lang), replyTo=messageId
+            )
+        else:
+            app.send_message(
+                threadId, i18n.get("errors.no-args", lang), replyTo=messageId
+            )
+            return
+    elif command == "/demote":
+        if not args:
+            app.send_message(
+                threadId, i18n.get("errors.no-args", lang), replyTo=messageId
+            )
+            return
 
-        promotion(app, ndcId, resolved.objectId, role)
-        app.send_message(threadId, i18n.get("promotion", lang), replyTo=messageId)
-    elif command == "/demotion":
         resolved = link_resolution(app, ndcId, args.strip())
         if resolved.objectId == authorId:
             return
-        demotion(app, ndcId, resolved.objectId, role)
-        app.send_message(threadId, i18n.get("demotion", lang), replyTo=messageId)
+
+        demotion(app, ndcId, resolved.objectId)
+        app.send_message(threadId, i18n.get("demote", lang), replyTo=messageId)
     elif command[:4] == "/set":
         mapper = {
             "name": "name",

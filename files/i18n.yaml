@@ -9,7 +9,7 @@ en:
 
         👾 View possible commands at /help.
     invite: |
-        ✅ Joined to provided community!        
+        ✅ Joined to provided community!
     sub: |
         ✅ Now I'm following you!
     botlang: |
@@ -32,8 +32,8 @@ en:
         /setleftpanel [reply message with image] – change left panel background
 
         [B]Admin management:
-        [WIP] /promote [link | reply message] [leader/curator]
-        [WIP] /demote [link | reply message]
+        /promote [link | reply message] [leader/curator]
+        /demote [link | reply message]
         [WIP] /transfer-agent [link | reply message]
 
         /help - you are here!
@@ -61,13 +61,12 @@ ru:
         🤨 Как это работает?
         1. Пригласи меня в своё сообщество с помощью команды /invite (например: /invite http://altamino.top/c/members).
         2. Начни со мною чат (личные сообщения).
-        3. Напиши /start, если я не вошёл в чат автоматически.        
+        3. Напиши /start, если я не вошёл в чат автоматически.
 
         👾 Посмотри доступные команды, вызвав  /help.
     invite: |
         ✅ Вступил в указанное сообщество!
-    sub:
-        ✅ Теперь я на тебя подписан!
+    sub: ✅ Теперь я на тебя подписан!
     botlang: |
         ✅ Сменил локализацию на  🇷🇺 Русский!
     help: |
@@ -88,11 +87,29 @@ ru:
         /setleftpanel [сообщение с картинкой в ответе] – поменять фон левого меню
 
         [B]Управление администрацией:
-        [WIP] /promote [ссылка] [leader/curator] - назначение на лидера/куратора (вместо ссылки может быть ответ на сообщение пользователя)
-        [WIP] /demote [ссылка] - снятие с должности (вместо ссылки может быть ответ на сообщение пользователя)
+        /promote [ссылка] [leader/curator] - назначение на лидера/куратора (вместо ссылки может быть ответ на сообщение пользователя)
+        /demote [ссылка] - снятие с должности (вместо ссылки может быть ответ на сообщение пользователя)
         [WIP] /transfer-agent [ссылка] - передача агента другому (вместо ссылки может быть ответ на сообщение пользователя; требуется подтверждение почты)
 
         /help - ты тут!
+    promote:
+        leader: ✅ Назначил на лидерскую должность.
+        curator: ✅ Назначил на кураторскую должность.
+    demote: ✅ Снял с должности.
+    transferagent: ✅ Передал агента другому пользователю.
+    roles:
+        leader:
+            - лидер
+            - 100
+            - лид
+            - админ
+            - администратор
+        curator:
+            - куратор
+            - 101
+            - кур
+            - модер
+            - модератор
     set:
         name: ✅ Имя сообщества изменено.
         aminoId: ✅ AltAmino ID сообщества изменён.
