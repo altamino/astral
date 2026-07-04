@@ -37,6 +37,27 @@ en:
         [WIP] /transfer-agent [link | reply message]
 
         /help - you are here!
+    promote:
+        leader: ✅ Promoted new leader.
+        curator: ✅ Promoted new curator.
+    demote: ✅ Demoted.
+    transferagent: ✅ Agent status transferred to new account.
+    roles:
+        leader:
+            - leader
+            - 100
+            - l
+            - lead
+            - admin
+            - administrator
+        curator:
+            - curator
+            - 101
+            - c
+            - cur
+            - moder
+            - mod
+            - moderator
     set:
         name: ✅ Community name edited.
         aminoId: ✅ AltAmino ID edited.
